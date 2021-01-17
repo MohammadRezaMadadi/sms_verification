@@ -9,11 +9,17 @@ def recive_sms():
     sndr = data['from']
     msg = data['message']
     print(f'We recived: {msg} from: {sndr}')
+    send_sms(sender, 'Hi ' + message)
     return jsonify(msg), 200
 
 def send_sms():
     '''function to send verification to customer'''
-    pass
+    API_KEY = 'your API_KEY'
+    url = f'your url which you want send meesage with + API_KEY'
+    data = {'message': message, 'receptor' : receptor}
+    respon = requests.post(url,data)
+    '''this is test'''
+    print(f'message: "{message}" sent. status code is {res.status.code} ')
 
 def chk_serial():
     '''function to check serial number sent from customer'''
